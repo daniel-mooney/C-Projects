@@ -4,8 +4,6 @@
 #include "bitmap.h"
 #include "functions.h"
 
-void print_array(unsigned char *arr, FILE *fptr);
-
 int main(int argc, char **argv){
 
     if (argc < 2) {
@@ -25,7 +23,6 @@ int main(int argc, char **argv){
     }
 
     char bin[12];
-
     create_binary_string(image.pixels[0], bin);
 
     return 0;

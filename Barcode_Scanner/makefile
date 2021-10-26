@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-g -Wall -std=c99
-LIBS= 
+LIBS= -lm
 TARGET=barcode_reader
 
 DEPS = bitmap.h functions.h

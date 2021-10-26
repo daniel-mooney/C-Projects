@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 #include "functions.h"
 #include "bitmap.h"
@@ -24,20 +25,36 @@ char RBG_to_binary(unsigned char *arr) {
     return '-';
 }
 
-void create_binary_string(unsigned char **pixels, unsigned char *bin_cpy) {
+void create_binary_string(unsigned char **pixels, char *bin_cpy) {
 
-    unsigned char binary[12];
+    char binary[13];
     char byte[8];
+    int byte_num = 0;
     int left_guard;
     int right_guard;
 
     find_guard_rails(pixels, &left_guard, &right_guard);
 
-    printf("left = %d\t right = %d\n", left_guard, right_guard);
+    for (int i = left_guard, bit = 0; i < right_guard; i++, bit++) {
+        byte[bit] = RBG_to_binary(pixels[i]);
+
+        if (bit == 7) {
+            binary[byte_num++] = binary_to_char(byte);
+            bit = -1;
+        }
+    }
+    strcpy(bin_cpy, binary);
 }
 
-char binary_to_char(char *binary) {
-    return 'c';
+char binary_to_char(char *byte) {
+
+    int bin_num = 0;
+
+    for (int i = 7, k = 0; i >= 0; i--, k++) {
+        int num = byte[i] - '0';
+        bin_num += num * pow(2, k);
+    }
+    return bin_num;
 }
 
 void find_guard_rails(unsigned char **pixels, int *left_guard, int *right_guard) {
