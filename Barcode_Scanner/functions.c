@@ -47,7 +47,7 @@ void find_guard_rails(unsigned char **pixels, int *left_guard, int *right_guard)
     char binary[4];
     int i;
 
-    // Find right_guard
+    // Find left_guard
     for (i = 0; i < 3; i++) {
         binary[i] = RBG_to_binary(pixels[i]);
     }
@@ -59,7 +59,7 @@ void find_guard_rails(unsigned char **pixels, int *left_guard, int *right_guard)
     *left_guard = i;
     memset(binary, '\0', 3);
 
-    // Find left_guard
+    // Find right_guard
     for(int k = 0, j = 101; j > 98; k++, j--) {
         binary[k] = RBG_to_binary(pixels[j]);
         i = j;
