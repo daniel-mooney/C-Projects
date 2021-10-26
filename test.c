@@ -1,19 +1,29 @@
 #include <stdio.h>
+#include <math.h>
+#include <string.h>
 
-char *foo(void);
+char binary_to_char(char *binary);
 
 int main() {
 
-    unsigned char word[] = "nice";
+    char *binary = "1111";
+    char bin = binary_to_char(binary);
 
-    printf("%s\n", word);
+    char c = 13;
+
+    printf("|%c|\n", c);
 
     return 0;
 }
 
-char *foo(void) {
-    char word[] = "abcdefg";
-    char *ptr = word;
+char binary_to_char(char *byte) {
 
-    return ptr;
+    char bin_num = 0;
+    int length = strlen(byte) - 1;
+
+    for (int i = length, k = 0; i >= 0; i--, k++) {
+        int num = byte[i] - '0';
+        bin_num += num * pow(2, k);
+    }
+    return bin_num;
 }
