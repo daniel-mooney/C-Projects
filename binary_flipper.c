@@ -26,11 +26,8 @@ unsigned char flip_binary(unsigned char binary) {
     for (int i = 0, k = total_bits - 1; i < total_bits; i++, k--) {
         if (binary & (b1 << i)) {
             reversed_byte |= b1 << k;
-        } else {
-
         }
     }
-
     return reversed_byte;
 }
 
