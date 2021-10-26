@@ -24,6 +24,10 @@ int main(int argc, char **argv){
         return 0;
     }
 
+    char bin[12];
+
+    create_binary_string(image.pixels[0], bin);
+
     return 0;
 }
 
