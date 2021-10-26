@@ -118,6 +118,7 @@ void decode_binary(char *binary, int *frame_nums) {
         if ( !valid_parity_bit(binary[i]) ) {
             continue;
         }
+        frame_nums[i] = (int) frame_to_int(binary[i]);
     }
     
 }
@@ -191,6 +192,36 @@ int valid_parity_bit(unsigned char byte) {
     return 1;
 }
 
+int frame_to_int(unsigned char byte) {
+     
+    unsigned char bit_scan = 0x03; //00000011
+
+    // Grab most significant and least significant bits
+    unsigned char most_sig = byte & (bit_scan << 5);
+    most_sig >>= 3;
+
+    unsigned char least_sig = byte & (bit_scan << 2);
+    least_sig >>= 2;
+
+    // Decode bits
+    int decoded_number = most_sig | least_sig;
+
+    if (decoded_number > 9) {
+        decoded_number -= 10;
+    }
+
+    return decoded_number;
+}
+
+void print_decoded_numbers(int *frame_numbers) {
+
+    int i;
+
+    for (i = 0; i < 11; i++) {
+        printf("%d ", frame_numbers[i]);
+    }
+    printf("%d\n", frame_numbers[i]);
+}
 
 
 

@@ -14,5 +14,7 @@
     unsigned char flip_binary(unsigned char binary);
     void visualise_binary(unsigned char binary);
     int valid_parity_bit(unsigned char byte);
+    int frame_to_int(unsigned char byte);
+    void print_decoded_numbers(int *frame_numbers);
     
 #endif /*FUNCTIONS_H*/

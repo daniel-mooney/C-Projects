@@ -27,8 +27,9 @@ int main(int argc, char **argv){
     create_binary_string(image.pixels[0], bin);
 
     int frame_numbers[12] = { [0 ... 11 ] -1};
-    decode_binary(bin, frame_numbers);    
+    decode_binary(bin, frame_numbers);  
 
+    print_decoded_numbers(frame_numbers);
 
     free_bmp(image);
 
