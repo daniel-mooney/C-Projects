@@ -1,23 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "functions.h"
 #include "bitmap.h"
 
-FILE *create_binary_file(Bmp image, char *filename) {
+#define BINARY_FILE "binary.txt"
+#define MAX_BUFF 1000
 
-    FILE *fptr = fopen(filename, "w");
 
-    for (int i = 0; i < image.height; i++) {
-        for (int j = 0; j < image.width; j++) {
-            char bin = RBG_to_binary(image.pixels[i][j]);
-            fputc(bin, fptr);
-        }
-        fputc('\n', fptr);
-    }
-    fclose(fptr);
-
-    return fptr;
+void diagnostic_mode(Bmp bmp_object) {
+    printf("Width: %d\n", bmp_object.width);
+    printf("Height: %d\n", bmp_object.height);
 }
 
 char RBG_to_binary(unsigned char *arr) {
@@ -30,8 +24,9 @@ char RBG_to_binary(unsigned char *arr) {
     return '-';
 }
 
-int *decode_binary(FILE *fptr, int size) {
-    
-}
+
+
+
+
 
 

@@ -1,40 +1,32 @@
 #include <stdio.h>
+#include <string.h>
 
 #include "bitmap.h"
 #include "functions.h"
 
 void print_array(unsigned char *arr, FILE *fptr);
 
-int main(void){
+int main(int argc, char **argv){
 
-    Bmp image = read_bmp("./images/invalid_barcode.bmp");
+    if (argc < 2) {
+        printf("No bmp image filename provided.\n");
+        return 0;
+    }
 
-    create_binary_file(image, "test.txt");
+    char *filename = argv[1];
+    Bmp image = read_bmp(filename);
 
-
-
-    // FILE *fptr = fopen("bpm_check.txt", "w");
-
-    // for (int i = 0; i < image.height; i++) {
-    //     for (int j = 0; j < image.width; j++) {
-    //         print_array(image.pixels[i][j], fptr);
-    //     }
-    //     fputc('\n', fptr);
-    // }
-    // fclose(fptr);
+    printf("Read file %s\n", filename);
+    
+    // Diagnostic mode
+    if (argc == 3) {
+        diagnostic_mode(image);
+        return 0;
+    }
 
     return 0;
 }
 
-void print_array(unsigned char *arr, FILE *fptr) {
-
-    fputs("[", fptr);
-
-    for (int i = 0; i < 2; i++) {
-        fprintf(fptr, "%i, ", arr[i]);
-    }
-    fprintf(fptr, "%i]", arr[2]);
-}
 
 
 

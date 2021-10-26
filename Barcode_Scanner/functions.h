@@ -3,9 +3,7 @@
 
     #include "bitmap.h"
 
-    FILE *create_binary_file(Bmp image, char *filename);
+    void diagnostic_mode(Bmp bmp_object);
     char RBG_to_binary(unsigned char *arr);
-    int *decode_binary(FILE *fptr, int size);
-
-
+    
 #endif /*FUNCTIONS_H*/

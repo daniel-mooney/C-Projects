@@ -20,6 +20,7 @@ typedef struct {
     // 2D array of pointers to pixels
     // pixels are a 3 byte arrays of [RED, GREEN, BLUE]
     // each is a colour (from 0-255) is that component of colour in the pixel
+
     unsigned char ***pixels;
 
     // Don't worry about this, we just use it to store some extra information about the image
