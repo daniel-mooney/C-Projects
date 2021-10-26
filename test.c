@@ -2,28 +2,28 @@
 #include <math.h>
 #include <string.h>
 
-char binary_to_char(char *binary);
+#define MAX_BUFF 1000
+void reverse_string(char *string);
 
 int main() {
 
-    char *binary = "1111";
-    char bin = binary_to_char(binary);
+    char word[] = "racecar";
 
-    char c = 13;
+    reverse_string(word);
 
-    printf("|%c|\n", c);
+    printf("%s\n", word);
 
     return 0;
 }
 
-char binary_to_char(char *byte) {
+void reverse_string(char *string) {
 
-    char bin_num = 0;
-    int length = strlen(byte) - 1;
+    int length = strlen(string);
+    char rev_str[MAX_BUFF];
 
-    for (int i = length, k = 0; i >= 0; i--, k++) {
-        int num = byte[i] - '0';
-        bin_num += num * pow(2, k);
+    for (int i = 0, k = length - 1; i < length; i++, k--) {
+        rev_str[i] = string[k];
     }
-    return bin_num;
+    rev_str[length] = '\0';
+    strcpy(string, rev_str);
 }
