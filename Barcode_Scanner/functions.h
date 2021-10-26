@@ -9,5 +9,10 @@
     void find_guard_rails(unsigned char **pixels, int *left_guard, int *right_guard);
     char binary_to_char(char *binary);
     void create_binary_string(unsigned char **pixels, char *bin_cpy);
+    void decode_binary(char *binary, int *frame_nums);
+    void reverse_string(char *string);
+    unsigned char flip_binary(unsigned char binary);
+    void visualise_binary(unsigned char binary);
+    int valid_parity_bit(unsigned char byte);
     
 #endif /*FUNCTIONS_H*/
