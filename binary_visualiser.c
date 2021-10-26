@@ -2,11 +2,13 @@
 
 void visualise_binary(unsigned char binary);
 
-int main() {
+int main(void) {
 
     unsigned char binary = 0x03;
 
     visualise_binary(binary);
+
+    return 0;
 }
 
 void visualise_binary(unsigned char binary) {
