@@ -3,27 +3,31 @@
 #include <string.h>
 
 #define MAX_BUFF 1000
-void reverse_string(char *string);
+void visualise_binary(unsigned char binary);
 
 int main() {
 
-    char word[] = "racecar";
+    unsigned char bit = 0x60;
 
-    reverse_string(word);
+    visualise_binary(bit);
 
-    printf("%s\n", word);
+    bit >>= 3;
+    visualise_binary(bit);
+
+
 
     return 0;
 }
 
-void reverse_string(char *string) {
+void visualise_binary(unsigned char binary) {
+    
+    char binary_str[] ="00000000";
+    unsigned char b1 = 0x01;    // 0000 0001
 
-    int length = strlen(string);
-    char rev_str[MAX_BUFF];
-
-    for (int i = 0, k = length - 1; i < length; i++, k--) {
-        rev_str[i] = string[k];
+    for (int i = 7, k = 0; i >= 0; i--, k++) {
+        if ( (binary & (b1 << i)) != 0) {
+            binary_str[k] = '1';
+        }
     }
-    rev_str[length] = '\0';
-    strcpy(string, rev_str);
+    printf("%s\n", binary_str);
 }

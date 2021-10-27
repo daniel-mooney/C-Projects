@@ -125,7 +125,6 @@ void decode_binary(char *binary, int *frame_nums) {
         }
         frame_nums[i] = (int) frame_to_int(binary[i]);
     }
-    
 }
 
 void reverse_string(char *string) {
@@ -249,8 +248,3 @@ int check_valid_barcode (int *frame_numbers) {
 
     return 0;
 }
-
-
-
-
-
