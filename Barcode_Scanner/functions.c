@@ -26,6 +26,7 @@ char RBG_to_binary(unsigned char *arr) {
 }
 
 void create_binary_string(unsigned char **pixels, char *bin_cpy) {
+    // Converts a pixel array into a string of binary
 
     char binary[13];
     char byte[9];
@@ -106,6 +107,7 @@ void shift_arr(char arr[], int length, char insert) {
 }
 
 void decode_binary(char *binary, int *frame_nums) {
+    // Decodes a binary string into a list of integers corresponding to each byte
 
     unsigned char reversed_direction = 0x80;    // 10000000
 
@@ -153,6 +155,8 @@ unsigned char flip_binary(unsigned char binary) {
 }
 
 int valid_parity_bit(unsigned char byte) {
+    // Checks whether the corresponding parity bit for the most and least significant bit is correct
+
 
     unsigned char b1 = 0x01;          // 00000001
     unsigned char bit_scan = 0x03;    // 00000011
@@ -183,7 +187,10 @@ int valid_parity_bit(unsigned char byte) {
 }
 
 int frame_to_int(unsigned char byte) {
-     
+    // Grabs and combines the most and least significant bits into a single binary variable which
+    // represents a decoded integer
+
+
     unsigned char bit_scan = 0x03; //00000011
 
     // Grab most significant and least significant bits
@@ -214,6 +221,8 @@ void print_decoded_numbers(int *frame_numbers) {
 }
 
 int check_valid_barcode (int *frame_numbers) {
+    // Searches whether -1 is still present in frame_numbers after decode_binary has iterated
+    // through the whole binary string array. -1 represents an invalid frame.
 
     int count = 0;
 

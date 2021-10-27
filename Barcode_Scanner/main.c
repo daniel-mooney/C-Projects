@@ -27,10 +27,10 @@ int main(int argc, char **argv){
         char bin[12];
         create_binary_string(image.pixels[i], bin);
         
-        decode_binary(bin, frame_numbers);  
+        decode_binary(bin, frame_numbers);
     }
     
-    if ( !check_valid_barcode(frame_numbers)) {
+    if ( !check_valid_barcode(frame_numbers) ) {
         return 0;
     }
 
