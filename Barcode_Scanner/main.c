@@ -4,8 +4,6 @@
 #include "bitmap.h"
 #include "functions.h"
 
-FILE *create_binary_file(Bmp image, char *filename, char *mode);
-
 int main(int argc, char **argv){
 
     if (argc < 2) {
@@ -23,11 +21,18 @@ int main(int argc, char **argv){
         return 0;
     }
 
-    char bin[12];
-    create_binary_string(image.pixels[0], bin);
-
     int frame_numbers[12] = { [0 ... 11 ] -1};
-    decode_binary(bin, frame_numbers);  
+
+    for (int i = 0; i < image.height; i++) {
+        char bin[12];
+        create_binary_string(image.pixels[i], bin);
+        
+        decode_binary(bin, frame_numbers);  
+    }
+    
+    if ( !check_valid_barcode(frame_numbers)) {
+        return 0;
+    }
 
     print_decoded_numbers(frame_numbers);
 
@@ -35,27 +40,3 @@ int main(int argc, char **argv){
 
     return 0;
 }
-
-FILE *create_binary_file(Bmp image, char *filename, char *mode) {
-
-    FILE *fptr = fopen(filename, "w");
-
-    for (int i = 0; i < image.height; i++) {
-        for (int j = 0; j < image.width; j++) {
-            char bin = RBG_to_binary(image.pixels[i][j]);
-            fputc(bin, fptr);
-        }
-        fputc('\n', fptr);
-    }
-    fclose(fptr);
-
-    fptr = fopen(filename, mode);
-
-    return fptr;
-}
-
-
-
-
-
-

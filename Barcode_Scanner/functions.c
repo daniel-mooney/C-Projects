@@ -34,6 +34,9 @@ void create_binary_string(unsigned char **pixels, char *bin_cpy) {
     int left_guard;
     int right_guard;
 
+    // Clean binary string
+    memset(binary, '\0', 13);
+
     find_guard_rails(pixels, &left_guard, &right_guard);
 
     for (int i = left_guard, bit = 0; i < right_guard; i++, bit++) {
@@ -149,19 +152,6 @@ unsigned char flip_binary(unsigned char binary) {
     return reversed_byte;
 }
 
-void visualise_binary(unsigned char binary) {
-    
-    char binary_str[] ="00000000";
-    unsigned char b1 = 0x01;    // 00000001
-
-    for (int i = 7, k = 0; i >= 0; i--, k++) {
-        if ( (binary & (b1 << i)) != 0) {
-            binary_str[k] = '1';
-        }
-    }
-    printf("%s\n", binary_str);
-}
-
 int valid_parity_bit(unsigned char byte) {
 
     unsigned char b1 = 0x01;          // 00000001
@@ -221,6 +211,34 @@ void print_decoded_numbers(int *frame_numbers) {
         printf("%d ", frame_numbers[i]);
     }
     printf("%d\n", frame_numbers[i]);
+}
+
+int check_valid_barcode (int *frame_numbers) {
+
+    int count = 0;
+
+    for (int i = 0; i < 12; i++) {
+        if (frame_numbers[i] == -1) {
+            count++;
+        }
+    }
+
+    if (count == 0) {
+        return 1;
+    } else if (count == 1) {
+        printf("Unable to read frame:");
+    } else {
+        printf("Unable to read frames:");
+    }
+
+    for (int i = 0; i < 12; i++) {
+        if (frame_numbers[i] == -1) {
+            printf(" %d", i);
+        }
+    }
+    printf("\n");
+
+    return 0;
 }
 
 

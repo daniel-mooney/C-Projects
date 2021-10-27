@@ -12,9 +12,9 @@
     void decode_binary(char *binary, int *frame_nums);
     void reverse_string(char *string);
     unsigned char flip_binary(unsigned char binary);
-    void visualise_binary(unsigned char binary);
     int valid_parity_bit(unsigned char byte);
     int frame_to_int(unsigned char byte);
     void print_decoded_numbers(int *frame_numbers);
+    int check_valid_barcode (int *frame_numbers);
     
 #endif /*FUNCTIONS_H*/
