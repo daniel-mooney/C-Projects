@@ -2,32 +2,32 @@
 #include <math.h>
 #include <string.h>
 
-#define MAX_BUFF 1000
-void visualise_binary(unsigned char binary);
-
 int main() {
 
-    unsigned char bit = 0x60;
+    int a = 0;
+    int b = 0;
+    int c = 0;
+    int d = 0;
+    int e = 0;
+    
 
-    visualise_binary(bit);
-
-    bit >>= 3;
-    visualise_binary(bit);
-
-
+    for (int i = 0; i < 20; i++) {
+        a++;
+        for (int j = 0; j < 20; j++) {
+            b++;
+            for (int k = 0; k < 20; k++) {
+                c++;
+                for (int l = 0; l < 20; l++) {
+                    d++;
+                    for (int m = 0; m < 20; m++) {
+                        e++;
+                    }
+                }
+            }
+        }
+    }
+    
 
     return 0;
 }
 
-void visualise_binary(unsigned char binary) {
-    
-    char binary_str[] ="00000000";
-    unsigned char b1 = 0x01;    // 0000 0001
-
-    for (int i = 7, k = 0; i >= 0; i--, k++) {
-        if ( (binary & (b1 << i)) != 0) {
-            binary_str[k] = '1';
-        }
-    }
-    printf("%s\n", binary_str);
-}
