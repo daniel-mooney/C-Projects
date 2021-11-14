@@ -1,33 +1,49 @@
 #include <stdio.h>
-#include <math.h>
+#include <stdlib.h>
 #include <string.h>
 
-int main() {
+#define MAX_BUFF 1000
 
-    int a = 0;
-    int b = 0;
-    int c = 0;
-    int d = 0;
-    int e = 0;
-    
+void CSV_dimensions(FILE *csv_file, int *rows, int *columns);
 
-    for (int i = 0; i < 20; i++) {
-        a++;
-        for (int j = 0; j < 20; j++) {
-            b++;
-            for (int k = 0; k < 20; k++) {
-                c++;
-                for (int l = 0; l < 20; l++) {
-                    d++;
-                    for (int m = 0; m < 20; m++) {
-                        e++;
-                    }
+int main(void) {
+
+    FILE *fptr = fopen("./data/ordered_number_set.csv", "r");
+
+    char line[MAX_BUFF];
+    fgets(line, MAX_BUFF, fptr);
+
+    int rows, columns;
+    CSV_dimensions(fptr, &rows, &columns);
+
+    printf("%s\n", line);
+    printf("%d, %d\n", rows, columns);
+
+
+    fclose(fptr);
+
+    return 0;
+}
+
+void CSV_dimensions(FILE *csv_file, int *total_rows, int *tota_columns) {
+
+    int rows = 0;
+    int columns = 0;
+
+    char line[MAX_BUFF];
+
+    while (fgets(line, MAX_BUFF, csv_file)) {
+        rows++;
+
+        if (columns == 0) {
+            for (int i = 0; i < strlen(line); i++) {
+                if (line[i] == ',') {
+                    columns++;
                 }
             }
         }
     }
-    
-
-    return 0;
+    *total_rows = rows;
+    *tota_columns = columns + 1;
 }
 
