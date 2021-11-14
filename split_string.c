@@ -6,12 +6,15 @@ void split_string(char ***ptr_split, char *string, char *delim);
 
 int main(){
 
-    char string[] = "fun times splitting strings";
+    char string[] = "fun times splitting strings\n";
+    string[strcspn(string, "\n")] = 0;
+
     char **split;
 
-    split_string(&split, string, "s");
+    split_string(&split, string, " ");
 
     //split[2] = "changed";
+
 
     printf("%s\n", split[3]);
 
