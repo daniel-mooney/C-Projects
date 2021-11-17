@@ -1,8 +1,14 @@
+/*Split string is a re-implementatio of the .split() python function in C. The function takes a character array
+as argument and splits the characters by a set delimeter into an array. This array is assigned to a variable
+in main by reference.*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-void split_string(char ***ptr_split, char *string, char *delim);
+#define MAX_BUFF 1000
+
+void split_string(char ***ptr_split, char string[], char *delim);
 
 int main(){
 
@@ -23,7 +29,7 @@ int main(){
 
 void split_string(char ***ptr_split, char string[], char *delim) {
 
-    char *split[10000];
+    char *split[MAX_BUFF];
     char *token = strtok(string, delim);
     int i = 0;
 

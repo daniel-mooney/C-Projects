@@ -1,3 +1,5 @@
+/*The function defined in this file is able to read a specified column in a file.*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

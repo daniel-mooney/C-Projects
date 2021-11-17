@@ -1,3 +1,6 @@
+/*The two functions contained in this file combine to be able to read a CSV file of integers one line
+at a time, returning an array of the lines contents.*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -29,7 +32,7 @@ int main(void) {
 
 int *CSV_readline_int(FILE *csv_file, int length) {
     
-    int *array = (int *) malloc(length * sizeof(int));
+    int array[length];
     int i = 0;
 
     char line[MAX_BUFF];

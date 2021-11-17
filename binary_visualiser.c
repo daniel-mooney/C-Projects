@@ -1,3 +1,6 @@
+/*The function visualise_binary takes in one byte worth of information in the form of a character and is 
+able to print the underlying binary to the terminal*/
+
 #include <stdio.h>
 
 void visualise_binary(unsigned char binary);
