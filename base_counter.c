@@ -1,4 +1,4 @@
-/*A program that can count from a starting to end number in any based specified (less than 11)
+/*A program that can count from a starting to end number in any based specified (less than 37)
 without the use of standard library functions such as itoa.*/
 
 #include <stdio.h>
@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
 }
 
 void base_counter(int start, int end, int base) {
-    /*Counts and prints to terminal the numbers from start to end in what ever base specified (less than 36)*/
+    /*Counts and prints to terminal the numbers from start to end in what ever base specified (less than 37)*/
     int n = start;
 
     while (n <= end) {
@@ -40,7 +40,7 @@ void base_counter(int start, int end, int base) {
 }
 
 int decimal_to_base(int decimal, int base, char **num_str) {
-    /*Converts a decimal number to a number of a specified base (less than 36)*/
+    /*Converts a decimal number to a number of a specified base (less than 37)*/
     char number[MAX_BUFF] = "";
 
     if (decimal == 0) {
