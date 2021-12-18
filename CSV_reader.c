@@ -7,7 +7,7 @@ at a time, returning an array of the lines contents.*/
 
 #define MAX_BUFF 1000
 
-int *CSV_readline_int(FILE *csv_file, int length);
+void CSV_readline_int(FILE *csv_file, int *array);
 void CSV_dimensions(FILE *csv_file, int *total_rows, int *total_columns);
 
 
@@ -18,21 +18,19 @@ int main(void) {
     int row, columns;
     CSV_dimensions(csv_fptr, &row, &columns);
 
-    int *array = CSV_readline_int(csv_fptr, columns);
+    int array[columns];
+    CSV_readline_int(csv_fptr, array);
 
     for (int i = 0; i < columns; i++) {
         printf("%d\n", array[i]);
     }
 
-    free(array);
     fclose(csv_fptr);
-
     return 0;
 }
 
-int *CSV_readline_int(FILE *csv_file, int length) {
+void CSV_readline_int(FILE *csv_file, int *array) {
     
-    int array[length];
     int i = 0;
 
     char line[MAX_BUFF];
@@ -44,7 +42,6 @@ int *CSV_readline_int(FILE *csv_file, int length) {
         array[i++] = atoi(token);
         token = strtok(NULL, ",");
     }
-    return array;
 }
 
 void CSV_dimensions(FILE *csv_file, int *total_rows, int *total_columns) {
