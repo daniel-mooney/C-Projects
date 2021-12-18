@@ -11,9 +11,11 @@ typedef struct linkedList linkedList;
 // Function Prototypes
 linkedList *create_element(int value);
 void add_index(int value, int index, linkedList *base);
+int at_index(int index, linkedList *base);
+void free_list(linkedList *base);
 
 
-int main(void) {
+int main(int argc, char **argv) {
 
     return 0;
 }
@@ -46,4 +48,29 @@ void add_index(int value, int index, linkedList *base) {
 
     new_element ->next = element ->next;
     element ->next = new_element;    
+}
+
+int at_index(int index, linkedList *base) {
+    /*Finds the value held at the specified index within the linked list*/
+    linkedList *element = base;
+
+    for (int i = 0; i < index; i++) {
+        if (element ->next == NULL) {
+            printf("Error: Index out of range.");
+            exit(0);
+        }
+        element = element ->next;
+    }
+    return (element ->value);
+}
+
+void free_list(linkedList *base) {
+    /*Frees the memory assigned to the the link list starting at the base address*/
+
+    if (base ->next == NULL) {
+        free(base);
+    } else {
+        free_list(base ->next);
+        free(base);
+    }
 }
