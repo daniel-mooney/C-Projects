@@ -21,8 +21,9 @@ int main(void) {
     add_index(2, 1, base);
     add_index(17, 2, base);
     add_index(25, 1, base);
+    base = add_index(6, 0, base);
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 5; i++) {
         printf("%d\n", at_index(base, i));
     }
 
