@@ -15,6 +15,7 @@ typedef struct node node;
 
 // Function prototypes
 node *add_node(int value, node *base);
+void destroy_tree(node *base);
 
 int main(void) {
 
@@ -51,4 +52,13 @@ node *add_node(int value, node *base) {
         }
     }
     return base;
+}
+
+void destroy_tree(node *base) {
+    if ( base->left != NULL) {
+        destroy_tree( base->left );
+    } if ( base->right != NULL) {
+        destroy_tree( base->right );
+    }
+    free(base);
 }
