@@ -36,29 +36,29 @@ node *add_node(int value, node *base) {
     node *new_node = (node *) malloc( sizeof(node) );
     new_node ->value = value;
 
-    if ( base->left == NULL && base->right == NULL ) {
-        base->left = new_node;
-    } else if ( base->right->value >= value) {
-        if ( base->left == NULL ) {
-            base->left = new_node;
+    if ( base ->left == NULL && base ->right == NULL ) {
+        base ->left = new_node;
+    } else if ( base ->right ->value >= value) {
+        if ( base ->left == NULL ) {
+            base ->left = new_node;
         } else {
-            add_node(value, base->left);
+            add_node(value, base ->left);
         }
     } else {
-        if ( base->right == NULL) {
-            base->right = new_node;
+        if ( base ->right == NULL) {
+            base ->right = new_node;
         } else {
-            add_node(value, base->right);
+            add_node(value, base ->right);
         }
     }
     return base;
 }
 
 void destroy_tree(node *base) {
-    if ( base->left != NULL) {
-        destroy_tree( base->left );
-    } if ( base->right != NULL) {
-        destroy_tree( base->right );
+    if ( base ->left != NULL) {
+        destroy_tree( base ->left );
+    } if ( base ->right != NULL) {
+        destroy_tree( base ->right );
     }
     free(base);
 }
