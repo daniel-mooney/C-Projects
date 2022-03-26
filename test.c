@@ -1,13 +1,13 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
-int main(int argc, char **argv) {
-    printf("Is it a good idea to cook gnocchi in the microwave?");
-    char c;
-    scanf("%c\n", &c);
+int main() {
 
-    while (1) {
-        printf("hell no\n");
-    }
+  char *word = "nice";
+  int k = 0;
+
+  for (char *p = word; *p && k >= 0; ++p) {
+    printf("%c\n", *p);
+  }
+
+  return 0;
 }
