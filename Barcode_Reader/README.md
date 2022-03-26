@@ -19,3 +19,7 @@ program ends. If not, the program enteres `Scanning Mode` where the encoded numb
 as output.
 
 If a frame is unable to be read, the program returns which frames are unable to be read and ends.
+
+## Code References
+Code found in `functions.c` and `main.c` are of my own work, with functions found in `bitmap.c` and
+the makefile being someone elses.
