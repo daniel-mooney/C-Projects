@@ -20,6 +20,6 @@ as output.
 
 If a frame is unable to be read, the program returns which frames are unable to be read and ends.
 
-#### Code Disclaimer
+### Code Disclaimer
 Code found in `functions.c` and `main.c` are of my own work, with functions found in `bitmap.c` and
 the makefile being someone elses.
