@@ -10,7 +10,7 @@ Both the `MSB` and `LSB` have their own even parity bit for error checking.
 
 <img src = "https://static.au.edusercontent.com/files/KvL5qk8AF7ysh19fpbWud2Gy" alt="barcode image">
 
-## Input
+### Input
 The program receives a bitmap file as a command line argument with an optional `-d` for diagnostic mode.
 Input validation is done within the program to ensure a file has been passed or is successfully opened.
 
