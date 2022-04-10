@@ -1,13 +1,23 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-int main() {
+typedef struct _Person {
+	char *name;
+	int age;
+} Person;
 
-  char *word = "nice";
-  int k = 0;
+int main(void) {
 
-  for (char *p = word; *p && k >= 0; ++p) {
-    printf("%c\n", *p);
-  }
+	Person x = {x.name = "steve", x.age = 56};
 
-  return 0;
+	printf("Name: %s\t\tAge: %d\n", x.name, x.age);
+
+	Person x = {.name = "craig", .age = 25};
+
+	printf("Name: %s\t\tAge: %d\n", x.name, x.age);
+
+	
+
 }
+

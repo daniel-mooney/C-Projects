@@ -1,7 +1,7 @@
 /*The function visualise_binary takes in one byte worth of information in the form of a character and is 
 able to print the underlying binary to the terminal.
 
-Pass binary in as a Hex value through*/
+Pass in a single byte by command line arguments*/
 
 #include <stdio.h>
 #include <stdlib.h>
